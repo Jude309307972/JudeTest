@@ -74,8 +74,5 @@ class ViewController: UIViewController {
             enter()
         }
     }
-    func testPrint() ->()
-    {
-        print("testGitHubCommit!")
-    }
+  
 }
