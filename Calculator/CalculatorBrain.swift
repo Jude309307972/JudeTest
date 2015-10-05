@@ -10,7 +10,6 @@ import Foundation
 
 class CalculatorBrain {
     
-    var brain = CalculatorBrain()
     init() {
         knownOps["×"] = Op.BinaryOperation("×"){$0 * $1}
         knownOps["÷"] = Op.BinaryOperation("÷"){$1 / $0}

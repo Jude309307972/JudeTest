@@ -53,7 +53,7 @@ enum Barcode {
 
 var productBarcode = Barcode.UPCA(8, 85900_51226, 3)
 
-//productBarcode = .QRCode("abcdefghijklmnop")
+productBarcode = .QRCode("abcdefghijklmnop")
 
 switch productBarcode {
 case .UPCA(let numberSystem, let identifier, let check):
@@ -136,7 +136,7 @@ numbers.map({
     number in 3 * number
 })
 
-numbers.map { (number: Int) -> Double in
+numbers.map {(number: Int) -> Double in
     if(number % 2) == 0 {
         return 0
     } else {
@@ -144,8 +144,13 @@ numbers.map { (number: Int) -> Double in
     }
 }
 
+numbers.map{ number in
+    return 3 * number
+}
+
+
 // 捕获值
-func makeIncrementor(forIncrement amout: Int) ->() ->Int {
+func makeIncrementor(forIncrement amout: Int) -> ()->Int {
     var runningTotal = 0
     func incrementor() -> Int {
         runningTotal += amout
