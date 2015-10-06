@@ -39,8 +39,9 @@ for item in shoppingList {
     print(item)
 }
 
+
 var someInts = [Int]()
-//print("someInts is of type [Int] with \(someInts.cout) items")
+print("someInts is of type [Int] with \(someInts.count) items")
 
 someInts.append(3)
 someInts = []
@@ -55,7 +56,7 @@ var sixDoubles = threeDoubles + anotherThreeDouble
 var airports:[String:String] = ["TYO" : "Tokyo", "DUB": "Dubin"]
 print("the dictionary of airports cont")
 
-//print("the dictionary of airports contains \(airports.cout) items")
+print("the dictionary of airports contains \(airports.count) items")
 
 if airports.isEmpty {
     print("the airports dictionary is empty")
