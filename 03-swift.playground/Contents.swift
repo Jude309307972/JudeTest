@@ -10,7 +10,7 @@ var shoppingList:[String] = ["eggs","milk"]
 
 var List = ["eggs", "milk"]
 
-print("the shopping list contains \(shoppingList) items")
+print("the shopping list contains \(shoppingList.count) items")
 
 if shoppingList.isEmpty {
     print("the shopping list is empty")
