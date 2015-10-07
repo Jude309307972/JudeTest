@@ -8,35 +8,31 @@
 
 import Foundation
 
-var names = ["Swift","Arial","Soga","Donary"]
-
-
-// 一 使用函数
-func backwards(firstString:String, secondString: String) -> Bool {
-    return firstString > secondString
+struct Person1 {
+    var name = "John"
 }
 
-var reversed = names.sort(backwards)
-print(reversed)
-
-reversed = names.sort({
-    (fir: String, sec: String) ->Bool in return fir < sec
-})
-print(reversed)
-
-reversed = names.sort({
-    (fir, sec) -> Bool in fir > sec
-})
-print(reversed)
-
-reversed = names.sort({$0 > $1})
-
-print(reversed)
-
-let strings = names.map{
-    (str: String) -> String in
-    return str + "hehe"
+struct Dog {
+    var name = "", age = 0
+    init(name: String, age:Int){
+        self.name = name
+        self.age = age
+    }
 }
-print(strings)
+
+var ps = Person1()
+print(ps.name)
+
+var dog = Dog(name: "Kiti", age: 4)
+print(dog)
+
+var base = Base(name: "base")
+var sub = Subclass(name: base.name!, age: 6)
+print("\(sub.name),\(sub.age!)")
+
+//base = Base(name: "otherBase")
+sub = Subclass(name: base.name!, age: 16)
+//print("\(sub.name!), \(sub.age!)")
+
 
 
