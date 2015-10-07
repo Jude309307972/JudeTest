@@ -8,28 +8,57 @@
 
 import Foundation
 
-print("Hello, World!")
+func add(var a:Int, b:Int) -> Int{
+    a = 1
+    return a + b
+}
 
-var ps = Person()
-let a = ps.a
+func add(a:Int, b:Int, c: Int) -> Int {
+    return a + b + c
+}
 
-print(a)
-var b = ps.b
+func printString(strings: String...){
+    for string  in strings{
+        print(string)
+    }
+}
 
-ps.name = "rose"
+func add(addFun:(Int,Int,Int) -> Int, a:Int, b:Int) {
+    print(addFun(a,b,50))
+}
 
-//搞清楚下面的输出
-print(b) //nil
-print(ps.b!) //rose
-print(ps.name)//jack
+func minus(a: Int,b:Int) ->Int {
+    return a - b
+}
+
+enum FunctionType {
+    case Add
+    case Minus
+}
+
+func chooseFuntion(funType: FunctionType) ->(Int,Int) ->Int {
+    return funType == FunctionType.Add ? add: minus
+}
+
+func mainFunction(input:Int) ->Int {
+    func internalFucntion(input: Int) ->Int {
+        return input - 1
+    }
+    return internalFucntion(input - 1)
+}
+
+var a = 10, b = 20
+
+print(add(10, b: 20))
+
+print(add(a, b: b , c: 10))
+
+printString("haha", "hehe")
+printString()
+
+add(add, a: a , b: b)
+
+let fun = chooseFuntion(FunctionType.Minus)
+print(fun(a,b))
 
 
-//调用类型属性
-print(++Person.classValue)
-let classValue = Person.classValue++
-print(classValue)
-
-//属性监视器
-ps.age = 100
-
-ps.age = 101
