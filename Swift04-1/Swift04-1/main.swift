@@ -8,31 +8,54 @@
 
 import Foundation
 
-struct Person1 {
-    var name = "John"
-}
-
-struct Dog {
-    var name = "", age = 0
-    init(name: String, age:Int){
-        self.name = name
-        self.age = age
+protocol someProtocol {
+    var readAndWrite: Int {
+        get
+        set
+    }
+    
+    var onlyRead: Int {
+        get
     }
 }
 
-var ps = Person1()
-print(ps.name)
+protocol classProtocol {
+    static var classValue: Int {
+        get
+    }
+}
 
-var dog = Dog(name: "Kiti", age: 4)
-print(dog)
+struct SomeStruct:someProtocol {
+    var selfValue: Int = 0
+    var readAndWrite: Int {
+        get {
+            return 123
+        }
+        set {
+            selfValue = newValue
+        }
+    }
+    
+    var onlyRead: Int {
+        get {
+            return 2015
+        }
+    }
+}
 
-var base = Base(name: "base")
-var sub = Subclass(name: base.name!, age: 6)
-print("\(sub.name),\(sub.age!)")
+class SomeClass:NSObject, classProtocol {
+    class  var classValue:Int {
+        get {
+            return 1000
+        }
+    }
+}
 
-//base = Base(name: "otherBase")
-sub = Subclass(name: base.name!, age: 16)
-//print("\(sub.name!), \(sub.age!)")
+var someStruct = SomeStruct()
+someStruct.readAndWrite = 789
+print(someStruct.readAndWrite)
+print(someStruct.selfValue)
+print(someStruct.onlyRead)
 
-
+print(SomeClass.classValue)
 
